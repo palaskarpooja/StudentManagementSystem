@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BusinessObject
 {
-    class CoursesBO
+    public class CoursesBO
     {
      
             private int id;
             private string name;
-            private DateTime duration;
+            private string duration;
             private string description;
 
             public CoursesBO()
@@ -19,7 +19,7 @@ namespace BusinessObject
 
             }
 
-            public CoursesBO(int id, string name, DateTime duration, string description)
+            public CoursesBO(int id, string name, string duration, string description)
             {
                 this.Id = id;
                 this.Name = name;
@@ -29,7 +29,7 @@ namespace BusinessObject
 
             public int Id { get => id; set => id = value; }
             public string Name { get => name; set => name = value; }
-            public DateTime Duration { get => duration; set => duration = value; }
+            public string Duration { get => duration; set => duration = value; }
             public string Description { get => description; set => description = value; }
         
     }

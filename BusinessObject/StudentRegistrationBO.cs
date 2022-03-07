@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessObject
 {
-    class StudentRegistrationsBO
+    public class StudentRegistrationBO
     {
         private int id;
         private string firstName;
@@ -15,12 +15,11 @@ namespace BusinessObject
         private int collegeId;
         private DateTime createdDate;
 
-        public StudentRegistrationsBO()
+        public StudentRegistrationBO()
         {
 
         }
-
-        public StudentRegistrationsBO(int id, string firstName, string lastName, long contactNumber, int collegeId, DateTime createdDate)
+        public StudentRegistrationBO(int id, string firstName, string lastName, long contactNumber, int collegeId, DateTime createdDate)
         {
             this.id = id;
             this.firstName = firstName;

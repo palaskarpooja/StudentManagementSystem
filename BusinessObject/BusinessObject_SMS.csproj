@@ -45,7 +45,7 @@
     <Compile Include="CoursesBO.cs" />
     <Compile Include="EnrollmentsBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StudentRegistrationsBO.cs" />
+    <Compile Include="StudentRegistrationBO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

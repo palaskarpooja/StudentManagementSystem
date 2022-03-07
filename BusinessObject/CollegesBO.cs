@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessObject
 {
-    class CollegesBO
+    public class CollegesBO
     {
        
        
