@@ -20,6 +20,7 @@ namespace DataAccessLayer
                 SqlCommand cmd = new SqlCommand("sp_AddDuration", con);
                 cmd.CommandType = CommandType.StoredProcedure;                
                 cmd.Parameters.AddWithValue("@Name", ObjC2.Name);
+                cmd.Parameters.AddWithValue("@Duration", ObjC2.Duration);
 
                 con.Open();
                 int Result2 = cmd.ExecuteNonQuery();
