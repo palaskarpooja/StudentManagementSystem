@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollegesBL.cs" />
+    <Compile Include="CourseDurationBL.cs" />
     <Compile Include="CoursesBL.cs" />
     <Compile Include="EnrollmentBL.cs" />
     <Compile Include="StudentBL.cs" />

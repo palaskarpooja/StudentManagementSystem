@@ -59,17 +59,17 @@ namespace DataAccessLayer
             }
         }
 
-        public int GetCoursesData(CoursesBO ObjC3)
+        public DataSet GetCoursesById(int Id)
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("sp_courses", con);
+                SqlCommand cmd = new SqlCommand("sp_GetCoursesById", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                con.Open();
-                SqlDataReader Result = cmd.ExecuteReader();
-                cmd.Dispose();
-                con.Close();
-                return (Int32)cmd.ExecuteScalar();
+                cmd.Parameters.AddWithValue("@Id", Id);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                return ds;
 
             }
             catch

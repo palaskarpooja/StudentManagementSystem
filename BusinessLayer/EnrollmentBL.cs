@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BusinessObject;
 using DataAccessLayer;
+using System.Data;
 
 namespace BusinessLayer
 {
@@ -36,6 +37,22 @@ namespace BusinessLayer
                 throw;
 
             }
+        }
+
+        public DataSet GetEnrollmentsById(int Id)
+        {
+            try
+            {
+                EnrollmentDAL ObjStud2 = new EnrollmentDAL();
+                DataSet dr1 = ObjStud2.GetEnrollmentsById(Id);
+                return dr1;
+
+            }
+            catch
+            {
+                throw;
+            }
+
         }
     }
 }
