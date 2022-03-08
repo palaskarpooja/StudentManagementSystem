@@ -80,7 +80,24 @@ namespace DataAccessLayer
             {
                 throw;
             }
+        }
 
+        public DataSet ViewEnrollment(EnrollmentsBO objen)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_ViewEnrollmentsDetails", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataSet ds1 = new DataSet();
+                da.Fill(ds1);
+                return ds1;
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

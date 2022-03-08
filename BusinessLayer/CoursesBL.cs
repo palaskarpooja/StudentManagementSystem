@@ -44,7 +44,7 @@ namespace BusinessLayer
             try
             {
                 CoursesDAL ObjStud2 = new CoursesDAL();
-                DataSet dr1 = ObjStud2.GetCoursesById(Id);
+                DataSet dr1 = ObjStud2.MyCourses(Id);
                 return dr1;
 
             }
@@ -55,5 +55,34 @@ namespace BusinessLayer
 
         }
 
+        public DataSet GetMyCoursesById(int StudentId)
+        {
+            try
+            {
+                CoursesDAL ObjStud2 = new CoursesDAL();
+                DataSet dr2 = ObjStud2.GetMyCourses(StudentId);
+                return dr2;
+
+            }
+            catch
+            {
+                throw;
+            }
+
+        }
+
+        public DataSet ListofCourses(CoursesBO objlist)
+        {
+            try
+            {
+                CoursesDAL ObjStud2 = new CoursesDAL();
+                DataSet dr3 = ObjStud2.ListOfCourses(objlist);
+                return dr3;
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }

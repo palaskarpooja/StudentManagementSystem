@@ -59,7 +59,7 @@ namespace DataAccessLayer
             }
         }
 
-        public DataSet GetCoursesById(int Id)
+        public DataSet MyCourses(int Id)
         {
             try
             {
@@ -76,7 +76,44 @@ namespace DataAccessLayer
             {
                 throw;
             }
+        }
 
+        public DataSet GetMyCourses(int StudentId)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_MyCourses", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@StudentId", StudentId);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                return ds;
+            }
+            catch
+            {
+                throw;
+            }
+
+           
+        }
+
+        public DataSet ListOfCourses(CoursesBO objlist)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_ListOfCourse", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataSet ds1 = new DataSet();
+                da.Fill(ds1);
+                return ds1;
+            }
+            catch
+            {
+                throw;
+            }
         }
 
     }

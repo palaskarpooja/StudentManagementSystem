@@ -9,6 +9,8 @@ using BusinessObject;
 using System.Data;
 
 
+
+
 namespace DataAccessLayer
 {
     public class StudentDAL
@@ -25,6 +27,7 @@ namespace DataAccessLayer
                 cmd.Parameters.AddWithValue("@FirstName", ObjBO.FirstName);
                 cmd.Parameters.AddWithValue("@LastName", ObjBO.LastName);
                 cmd.Parameters.AddWithValue("@ContactNumber", ObjBO.ContactNumber);
+                
                 cmd.Parameters.AddWithValue("@CollegeId", ObjBO.CollegeId);
                 cmd.Parameters.AddWithValue("@CreatedDate", ObjBO.CreatedDate);
 
@@ -37,7 +40,7 @@ namespace DataAccessLayer
 
             catch
             {
-                throw;
+                throw; 
             }
         }
 
@@ -68,14 +71,28 @@ namespace DataAccessLayer
             }
         }
 
+        public int DeleteStudentByID(int Id)
+        {
+            SqlCommand cmd = new SqlCommand("sp_DeleteStudentByID", con);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Id", Id);
+            int Result = cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            con.Close();
+            return Result;
+        }
+
+
+      
+
         public DataSet GetStudentById(int Id)
         {
            
             try
             {
-                SqlCommand cmd = new SqlCommand("sp_GetStudentById", con);               
+                SqlCommand cmd = new SqlCommand("sp_GetStudentDetailsById", con);               
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.Parameters.AddWithValue("@StudentId", Id);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);

@@ -54,5 +54,20 @@ namespace BusinessLayer
             }
 
         }
+
+        public DataSet ViewEnrollment(EnrollmentsBO objen)
+        {
+            try
+            {
+                EnrollmentDAL ObjStud2 = new EnrollmentDAL();
+                DataSet dr3 = ObjStud2.ViewEnrollment(objen);
+                return dr3;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
     }
 }
