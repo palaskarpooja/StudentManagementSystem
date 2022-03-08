@@ -27,7 +27,7 @@ namespace DataAccessLayer
                 cmd.Parameters.AddWithValue("@FirstName", ObjBO.FirstName);
                 cmd.Parameters.AddWithValue("@LastName", ObjBO.LastName);
                 cmd.Parameters.AddWithValue("@ContactNumber", ObjBO.ContactNumber);
-                
+
                 cmd.Parameters.AddWithValue("@CollegeId", ObjBO.CollegeId);
                 cmd.Parameters.AddWithValue("@CreatedDate", ObjBO.CreatedDate);
 
@@ -40,11 +40,11 @@ namespace DataAccessLayer
 
             catch
             {
-                throw; 
+                throw;
             }
         }
 
-        
+
 
         public int UpdateStudInfo(StudentRegistrationBO ObjBO1)
         {
@@ -83,34 +83,52 @@ namespace DataAccessLayer
         }
 
 
-      
+
 
         public DataSet GetStudentById(int Id)
         {
-           
+
             try
             {
-                SqlCommand cmd = new SqlCommand("sp_GetStudentDataById", con);               
+                SqlCommand cmd = new SqlCommand("sp_GetStudentDataById", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id", Id);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
-                return ds;                                   
+                return ds;
 
             }
             catch
             {
                 throw;
             }
-
         }
-    }
-    
 
-  
-  
-    
+        public DataSet ViewStudentById(int StudentId)
+        {
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_ViewStudentDetailsById", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@StudentId", StudentId);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                return ds;
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+
+    }
+
+
 }
 
 

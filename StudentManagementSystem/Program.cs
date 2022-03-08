@@ -383,33 +383,33 @@ namespace StudentManagementSystem
                                                     Console.WriteLine("Enter Student ID");
                                                     int StudentId1 = Convert.ToInt32(Console.ReadLine());
                                                     StudentBL sbl1 = new StudentBL();
-                                                    DataSet ds3 = sbl1.GetStudentById(StudentId1);
+                                                    DataSet ds3 = sbl1.ViewStudentById(StudentId1);
                                                     Console.WriteLine(" Student Details");
-                                                    Console.WriteLine("ID \t FirstName \t LastName \t ContactNo. \t CollegeName \t CreatedDate");
+                                                    Console.WriteLine("ID \t FirstName \t LastName \t ContactNo. \t CreatedDate \t\t CollegeName");
                                                     foreach (DataRow dr in ds3.Tables[0].Rows)
                                                     {
-                                                        Console.WriteLine(dr[0] + "\t" + dr[1] + "\t\t" + dr[2] + "\t\t" + dr[3] + "\t" + dr[4] + "\t\t" + dr[5]);
+                                                        Console.WriteLine(dr[0] + "\t" + dr[1] + "\t" + dr[2] + "\t" + dr[3] + "\t" + dr[4] + "\t" + dr[5]);
                                                     }
                                                     break;
 
                                                 case 3:
-                                                    Console.WriteLine("Edit Deatils");
+                                                    Console.WriteLine("Edit Student Details");
                                                     Console.WriteLine("Enter Student ID");
                                                     int Id = Convert.ToInt32(Console.ReadLine());
                                                     StudentBL sbl = new StudentBL();
-                                                    DataSet ds = sbl.GetStudentById(Id);
+                                                    DataSet  ds= sbl.GetStudentById(Id);
                                                     Console.WriteLine(" Student Details");
                                                     Console.WriteLine("ID \t FirstName \t LastName \t ContactNo. \t CollegeId \t CreatedDate");
                                                     foreach (DataRow dr in ds.Tables[0].Rows)
                                                     {
-                                                        Console.WriteLine(dr[0] + "\t" + dr[1] + "\t" + dr[2] + "\t" + dr[3] + "\t" + dr[4] + dr[5]);
+                                                        Console.WriteLine(dr[0] + "\t" + dr[1] + "\t" + dr[2] + "\t" + dr[3] + "\t" + dr[4] + "\t" + dr[5]);
                                                     }
                                                     StudentRegistrationBO bo2 = new StudentRegistrationBO();
                                                     Console.WriteLine("Edit the FirstName, LastName, ContactNumber, CollegeId and CreatedDate");
                                                     bo2.Id = Convert.ToInt32(Console.ReadLine());
                                                     bo2.FirstName = Console.ReadLine();
                                                     bo2.LastName = Console.ReadLine();
-                                                    bo2.ContactNumber = Convert.ToInt32(Console.ReadLine());
+                                                    bo2.ContactNumber = Convert.ToInt64(Console.ReadLine());
                                                     bo2.CollegeId = Convert.ToInt32(Console.ReadLine());
                                                     bo2.CreatedDate = Convert.ToDateTime(Console.ReadLine());
 
@@ -418,7 +418,34 @@ namespace StudentManagementSystem
                                                         Console.WriteLine("Successfully Updated Student Details");
                                                     else
                                                         Console.WriteLine("Failed to Update Student Details");
+
                                                     Console.WriteLine("\n******************************************\n");
+                                                    /*Console.WriteLine("Edit Deatils");
+                                                    Console.WriteLine("Enter Student ID");
+                                                    int Id = Convert.ToInt32(Console.ReadLine());
+                                                    StudentBL sbl = new StudentBL();
+                                                    DataSet ds = sbl.GetStudentById(Id);
+                                                    Console.WriteLine(" Student Details");
+                                                    Console.WriteLine("ID \t FirstName \t LastName \t ContactNo.  \t College Id \t CreatedDate");
+                                                    foreach (DataRow dr in ds.Tables[0].Rows)
+                                                    {
+                                                        Console.WriteLine(dr[0] + "\t" + dr[1] + "\t" + dr[2] + "\t" + dr[3] + "\t" + dr[4] + "\t" + dr[5] );
+                                                    }
+                                                    StudentRegistrationBO bo2 = new StudentRegistrationBO();
+                                                    Console.WriteLine("Edit the FirstName, LastName, ContactNumber, College Id and CreatedDate");
+                                                    bo2.Id = Convert.ToInt32(Console.ReadLine());
+                                                    bo2.FirstName = Console.ReadLine();
+                                                    bo2.LastName = Console.ReadLine();
+                                                    bo2.ContactNumber = Convert.ToInt64(Console.ReadLine());
+                                                    bo2.CollegeId = Convert.ToInt32(Console.ReadLine());
+                                                    bo2.CreatedDate = Convert.ToDateTime(Console.ReadLine());
+
+                                                    int g = sbl.UpdateStudBL(bo2);
+                                                    if (g != 0)
+                                                        Console.WriteLine("Successfully Updated Student Details");
+                                                    else
+                                                        Console.WriteLine("Failed to Update Student Details");
+                                                    Console.WriteLine("\n******************************************\n");*/
                                                     break;
 
                                                 default:

@@ -52,13 +52,32 @@ namespace BusinessLayer
             }
         }
         public DataSet GetStudentById(int Id)
-        { 
+        {
             try
             {
                 StudentDAL ObjStud3 = new StudentDAL();
                 DataSet dr1 = ObjStud3.GetStudentById(Id);
                 return dr1;
-                
+
+            }
+            catch
+            {
+                throw;
+            }
+
+            //----------------------------------------------------------------------------
+
+
+        }
+
+        public DataSet ViewStudentById(int StudentId)
+        {
+            try
+            {
+                StudentDAL ObjStud3 = new StudentDAL();
+                DataSet dr1 = ObjStud3.ViewStudentById(StudentId);
+                return dr1;
+
             }
             catch
             {
@@ -66,9 +85,5 @@ namespace BusinessLayer
             }
 
         }
-
-        //----------------------------------------------------------------------------
-
-
     }
 }
