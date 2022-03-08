@@ -90,9 +90,9 @@ namespace DataAccessLayer
            
             try
             {
-                SqlCommand cmd = new SqlCommand("sp_GetStudentDetailsById", con);               
+                SqlCommand cmd = new SqlCommand("sp_GetStudentDataById", con);               
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@StudentId", Id);
+                cmd.Parameters.AddWithValue("@Id", Id);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);

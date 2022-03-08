@@ -30,7 +30,7 @@ namespace StudentManagementSystem
                     {
                         case 1:
 
-                            Console.WriteLine("1. Manage Student Details \n 2. Manages Courses \n 3.Manage Enrollments \n 4.Back");
+                            Console.WriteLine("1. Manage Student Details \n 2. Manages Courses \n 3.Manage Enrollments \n 4.Manage College \n 5.Back");
 
                             Console.WriteLine("\n******************************************\n");
 
@@ -88,7 +88,7 @@ namespace StudentManagementSystem
                                                     bo2.Id = Convert.ToInt32(Console.ReadLine());
                                                     bo2.FirstName = Console.ReadLine();
                                                     bo2.LastName = Console.ReadLine();
-                                                    bo2.ContactNumber = Convert.ToInt32(Console.ReadLine());
+                                                    bo2.ContactNumber = Convert.ToInt64(Console.ReadLine());
                                                     bo2.CollegeId = Convert.ToInt32(Console.ReadLine());
                                                     bo2.CreatedDate = Convert.ToDateTime(Console.ReadLine());
 
@@ -187,8 +187,8 @@ namespace StudentManagementSystem
                                                         bo4.Description = Console.ReadLine();
 
                                                         CoursesBL blc2 = new BusinessLayer.CoursesBL();
-                                                        int c1 = blc2.UpdateCourseDataBL(bo4);
-                                                        if (c1 != 0)
+                                                        int cd1 = blc2.UpdateCourseDataBL(bo4);
+                                                        if (cd1 != 0)
                                                             Console.WriteLine("Successfully added Course Details");
                                                         else
                                                             Console.WriteLine("Failed to add Course Details");
@@ -207,7 +207,7 @@ namespace StudentManagementSystem
                                     //_------------------------Enrollment---------------------------------
 
                                     case 3:
-                                        Console.WriteLine("1. Add New enrollment \n 2. View \n 3.Edit \n 4.Back");
+                                        Console.WriteLine("1. Add New enrollment \n 2. View \n 3.Back");
 
                                         Console.WriteLine("\n******************************************\n");
 
@@ -247,7 +247,7 @@ namespace StudentManagementSystem
                                                     Console.ReadKey();
                                                     break;
 
-                                                case 3:
+                                                /*case 3:
                                                     Console.WriteLine("Edit Enrollments Details");
                                                     EnrollmentsBO bo8 = new EnrollmentsBO();
                                                     Console.WriteLine("Enter the Id, StudentId, CourseId and CreatedDate");
@@ -262,22 +262,68 @@ namespace StudentManagementSystem
                                                     else
                                                         Console.WriteLine("Failed to Update");
                                                     Console.WriteLine("\n******************************************\n");
+                                                    break;*/
+
+                                                case 3:
+                                                    isEnd4 = true;
+                                                    break;                                                                                                 
+                                            }
+                                        }
+                                        break;
+                                    case 4:
+                                        Console.WriteLine("1. Manage Colleges \n 2.View Colleges \n 3.Back");
+
+                                        Console.WriteLine("\n******************************************\n");
+                                        int c1 = Convert.ToInt32(Console.ReadLine());
+                                        bool isEnd6 = false;
+                                        while(!isEnd6)
+                                        {
+                                            switch(c1)
+                                            {
+                                                case 1:
+                                                    CollegesBO bo5 = new CollegesBO();
+                                                    Console.WriteLine("Enter the CollegeId and CollegeName");
+                                                    bo5.Id = Convert.ToInt32(Console.ReadLine());
+                                                    bo5.Name = Console.ReadLine();
+
+                                                    CollegesBL blcl1 = new BusinessLayer.CollegesBL();
+                                                    int cl = blcl1.CollegeDataBL(bo5);
+                                                    if (cl != 0)
+                                                        Console.WriteLine("Successfully add College");
+                                                    else
+                                                        Console.WriteLine("Failed to add College ");
                                                     break;
 
-                                                case 4:
-                                                    isEnd4 = true;
+                                                case 2:
+                                                    Console.WriteLine("Enter College ID");
+                                                    int Id = Convert.ToInt32(Console.ReadLine());
+                                                    CollegesBL cbl = new CollegesBL();
+                                                    DataSet ds = cbl.GetCollegesById(Id);
+                                                    Console.WriteLine(" Colleges Details");
+                                                    foreach (DataRow dr in ds.Tables[0].Rows)
+                                                    {
+                                                        Console.WriteLine(dr[0] + "\t" + dr[1]);
+                                                    }
+
+                                                    Console.WriteLine("\n---------------------------------------\n");
+
+                                                    break;
+
+                                                    
+
+                                                case 3:
+                                                    isEnd6 = true;
+
                                                     break;
                                             }
                                         }
                                         break;
 
-                                    case 4:
+                                    case 5:
                                         isEnd1 = true;
                                         break;
                                 }
                                 break;
-
-
                             }
                             break;
 
@@ -312,12 +358,12 @@ namespace StudentManagementSystem
                                                     bo.Id = Convert.ToInt32(Console.ReadLine());
                                                     bo.FirstName = Console.ReadLine();
                                                     bo.LastName = Console.ReadLine();
-                                                    bo.ContactNumber = Convert.ToInt32(Console.ReadLine());
-                                                    Regex r = new Regex(@"^(\+[0-9]{9})$");
+                                                    bo.ContactNumber = Convert.ToInt64(Console.ReadLine());
+                                                    /*Regex r = new Regex(@"^(\+[0-9]{9})$");
                                                     if (!r.IsMatch(bo.ContactNumber.ToString()))
                                                     {
                                                         throw new InvalidMobileException("Please enter 10 digit mobile number");
-                                                    }
+                                                    }*/
                                                     bo.CollegeId = Convert.ToInt32(Console.ReadLine());
                                                     bo.CreatedDate = Convert.ToDateTime(Console.ReadLine());
 
@@ -413,6 +459,7 @@ namespace StudentManagementSystem
                             break;
 
                         case 3:
+                           
                             isEnd = true;
                             break;
 
