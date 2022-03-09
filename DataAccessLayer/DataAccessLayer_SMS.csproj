@@ -54,6 +54,10 @@
       <Project>{37546379-f4d2-4d9f-ac52-826c46bc4926}</Project>
       <Name>BusinessObject_SMS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ExceptionLayer\ExceptionLayer.csproj">
+      <Project>{576d38b4-af74-4431-984c-52876563f2d2}</Project>
+      <Name>ExceptionLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

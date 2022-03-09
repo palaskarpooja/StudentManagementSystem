@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using BusinessObject;
 using System.Data;
-
-
-
+using System.Text.RegularExpressions;
+using ExceptionLayer;
 
 namespace DataAccessLayer
 {
@@ -27,6 +26,15 @@ namespace DataAccessLayer
                 cmd.Parameters.AddWithValue("@FirstName", ObjBO.FirstName);
                 cmd.Parameters.AddWithValue("@LastName", ObjBO.LastName);
                 cmd.Parameters.AddWithValue("@ContactNumber", ObjBO.ContactNumber);
+                /* Regex r = new Regex(@"^(\+[0-9]{9})$");
+                 if (!r.IsMatch(ObjBO.ContactNumber.ToString()))
+                 {
+                     throw new InvalidMobileException("Please enter 10 digit mobile number");
+                 }*/
+                /*if (ObjBO.ContactNumber != 10)
+                {
+                    throw new InvalidMobileException("Please enter 10 digit mobile number");
+                }*/
                 cmd.Parameters.AddWithValue("@CollegeId", ObjBO.CollegeId);
                 cmd.Parameters.AddWithValue("@CreatedDate", ObjBO.CreatedDate);
 
@@ -37,8 +45,9 @@ namespace DataAccessLayer
                 return Result;
             }
 
-            catch
+            catch//(InvalidMobileException i)
             {
+                /* return (i.Message);*/
                 throw;
             }
         }
@@ -95,6 +104,10 @@ namespace DataAccessLayer
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
+                if (ds.Tables[0].Rows.Count == 0)
+                {
+                    throw new DataNotFoundException("Give valid Student Id");
+                }
                 return ds;
 
             }
@@ -115,6 +128,10 @@ namespace DataAccessLayer
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
+                if (ds.Tables[0].Rows.Count == 0)
+                {
+                    throw new DataNotFoundException("Give valid Student Id");
+                }
                 return ds;
 
             }

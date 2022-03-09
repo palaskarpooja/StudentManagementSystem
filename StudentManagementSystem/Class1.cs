@@ -566,3 +566,30 @@ namespace StudentManagementSystem
     }
 }
 
+
+/*/*Console.WriteLine("Edit Deatils");
+                                                    Console.WriteLine("Enter Student ID");
+                                                    int Id = Convert.ToInt32(Console.ReadLine());
+                                                    StudentBL sbl = new StudentBL();
+                                                    DataSet ds = sbl.GetStudentById(Id);
+                                                    Console.WriteLine(" Student Details");
+                                                    Console.WriteLine("ID \t FirstName \t LastName \t ContactNo.  \t College Id \t CreatedDate");
+                                                    foreach (DataRow dr in ds.Tables[0].Rows)
+                                                    {
+                                                        Console.WriteLine(dr[0] + "\t" + dr[1] + "\t" + dr[2] + "\t" + dr[3] + "\t" + dr[4] + "\t" + dr[5] );
+                                                    }
+                                                    StudentRegistrationBO bo2 = new StudentRegistrationBO();
+                                                    Console.WriteLine("Edit the FirstName, LastName, ContactNumber, College Id and CreatedDate");
+                                                    bo2.Id = Convert.ToInt32(Console.ReadLine());
+                                                    bo2.FirstName = Console.ReadLine();
+                                                    bo2.LastName = Console.ReadLine();
+                                                    bo2.ContactNumber = Convert.ToInt64(Console.ReadLine());
+                                                    bo2.CollegeId = Convert.ToInt32(Console.ReadLine());
+                                                    bo2.CreatedDate = Convert.ToDateTime(Console.ReadLine());
+
+                                                    int g = sbl.UpdateStudBL(bo2);
+                                                    if (g != 0)
+                                                        Console.WriteLine("Successfully Updated Student Details");
+                                                    else
+                                                        Console.WriteLine("Failed to Update Student Details");
+                                                    Console.WriteLine("\n******************************************\n");*/

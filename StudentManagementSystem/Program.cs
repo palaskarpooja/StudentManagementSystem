@@ -32,21 +32,18 @@ namespace StudentManagementSystem
                             bool isEnd1 = false;
                             while (!isEnd1)
                             {
-
                                 Console.WriteLine("1. Manage Student Details \n 2. Manages Courses \n 3.Manage Enrollments \n 4.Manage College \n 5.Back");
-
                                 Console.WriteLine("\n******************************************\n");
-
-                                int n1 = Convert.ToInt32(Console.ReadLine());
-                            
+                                int n1 = Convert.ToInt32(Console.ReadLine());                            
                                 switch (n1)
                                 {
                                     case 1:
-                                        Console.WriteLine("1. Add New Student \n 2. Edit \n 3.View \n 4.Back");
-                                        int n2 = Convert.ToInt32(Console.ReadLine());
                                         bool isEnd2 = false;
                                         while (!isEnd2)
                                         {
+                                            Console.WriteLine("1. Add New Student \n 2. Edit \n 3.View \n 4.Back");
+                                            int n2 = Convert.ToInt32(Console.ReadLine());
+                                        
                                             switch (n2)
                                             {
                                                 case 1:
@@ -120,7 +117,7 @@ namespace StudentManagementSystem
                                                     isEnd2 = true;
                                                     break;
                                             }
-                                            break;
+                                           
 
                                         }
                                         break;
@@ -128,14 +125,15 @@ namespace StudentManagementSystem
                                     //_------------------------Courses---------------------------------
 
                                     case 2:
-                                        Console.WriteLine("1. Add New Courses \n 2. View \n 3.Edit \n 4.Back");
-
-                                        Console.WriteLine("\n******************************************\n");
-
-                                        int n3 = Convert.ToInt32(Console.ReadLine());
                                         bool isEnd3 = false;
                                         while (!isEnd3)
                                         {
+                                            Console.WriteLine("1. Add New Courses \n 2. View \n 3.Edit \n 4.Back");
+
+                                            Console.WriteLine("\n******************************************\n");
+
+                                            int n3 = Convert.ToInt32(Console.ReadLine());
+                                        
                                             switch (n3)
                                             {
                                                 case 1:
@@ -209,14 +207,15 @@ namespace StudentManagementSystem
                                     //_------------------------Enrollment---------------------------------
 
                                     case 3:
-                                        Console.WriteLine("1. Add New enrollment \n 2. View \n 3.Back");
+                                        bool isEnd4 = false;
+                                        while (!isEnd4)
+                                        {
+                                            Console.WriteLine("1. Add New enrollment \n 2. View \n 3.Back");
 
                                         Console.WriteLine("\n******************************************\n");
 
                                         int n4 = Convert.ToInt32(Console.ReadLine());
-                                        bool isEnd4 = false;
-                                        while (!isEnd4)
-                                        {
+                                        
                                             switch (n4)
                                             {
                                                 case 1:
@@ -273,14 +272,18 @@ namespace StudentManagementSystem
                                             }
                                         }
                                         break;
-                                    case 4:
-                                        Console.WriteLine("1. Manage Colleges \n 2.View Colleges \n 3.Back");
 
-                                        Console.WriteLine("\n******************************************\n");
-                                        int c1 = Convert.ToInt32(Console.ReadLine());
+                                        //-------------------------Colleges--------------------
+
+                                    case 4:
                                         bool isEnd6 = false;
-                                        while(!isEnd6)
+                                        while (!isEnd6)
                                         {
+                                            Console.WriteLine("1. Manage Colleges \n 2.View Colleges \n 3.Back");
+
+                                            Console.WriteLine("\n******************************************\n");
+                                            int c1 = Convert.ToInt32(Console.ReadLine());
+                                        
                                             switch(c1)
                                             {
                                                 case 1:
@@ -316,8 +319,7 @@ namespace StudentManagementSystem
 
                                                 case 3:
                                                     isEnd6 = true;
-
-                                                    break;
+                                                    break;                                
                                             }
                                         }
                                         break;
@@ -326,7 +328,6 @@ namespace StudentManagementSystem
                                         isEnd1 = true;
                                         break;
                                 }
-                                break;
                             }
                             break;
 
@@ -350,7 +351,7 @@ namespace StudentManagementSystem
                                         {
                                             Console.WriteLine("1. Register \n 2. View \n 3.Edit \n 4.Back");
 
-                                        Console.WriteLine("\n******************************************\n");
+                                            Console.WriteLine("\n******************************************\n");
 
                                         int s2 = Convert.ToInt32(Console.ReadLine());
                                         
@@ -425,35 +426,11 @@ namespace StudentManagementSystem
                                                         Console.WriteLine("Failed to Update Student Details");
 
                                                     Console.WriteLine("\n******************************************\n");
-                                                    /*Console.WriteLine("Edit Deatils");
-                                                    Console.WriteLine("Enter Student ID");
-                                                    int Id = Convert.ToInt32(Console.ReadLine());
-                                                    StudentBL sbl = new StudentBL();
-                                                    DataSet ds = sbl.GetStudentById(Id);
-                                                    Console.WriteLine(" Student Details");
-                                                    Console.WriteLine("ID \t FirstName \t LastName \t ContactNo.  \t College Id \t CreatedDate");
-                                                    foreach (DataRow dr in ds.Tables[0].Rows)
-                                                    {
-                                                        Console.WriteLine(dr[0] + "\t" + dr[1] + "\t" + dr[2] + "\t" + dr[3] + "\t" + dr[4] + "\t" + dr[5] );
-                                                    }
-                                                    StudentRegistrationBO bo2 = new StudentRegistrationBO();
-                                                    Console.WriteLine("Edit the FirstName, LastName, ContactNumber, College Id and CreatedDate");
-                                                    bo2.Id = Convert.ToInt32(Console.ReadLine());
-                                                    bo2.FirstName = Console.ReadLine();
-                                                    bo2.LastName = Console.ReadLine();
-                                                    bo2.ContactNumber = Convert.ToInt64(Console.ReadLine());
-                                                    bo2.CollegeId = Convert.ToInt32(Console.ReadLine());
-                                                    bo2.CreatedDate = Convert.ToDateTime(Console.ReadLine());
-
-                                                    int g = sbl.UpdateStudBL(bo2);
-                                                    if (g != 0)
-                                                        Console.WriteLine("Successfully Updated Student Details");
-                                                    else
-                                                        Console.WriteLine("Failed to Update Student Details");
-                                                    Console.WriteLine("\n******************************************\n");*/
+                                                  
                                                     break;
 
-                                                default:
+                                                case 4:
+                                                    isEnd6 = true;
                                                     break;
                                             }
                                         }
@@ -484,14 +461,16 @@ namespace StudentManagementSystem
                                         }
                                         Console.ReadKey();
                                         break;
+
+                                    
+
                                 }
                                 break;
 
                             }
                             break;
 
-                        case 3:
-                           
+                        case 3:                           
                             isEnd = true;
                             break;
 

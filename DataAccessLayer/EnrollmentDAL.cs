@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using BusinessObject;
 using System.Data;
 using System.Configuration;
+using ExceptionLayer;
 
 namespace DataAccessLayer
 {
@@ -73,6 +74,10 @@ namespace DataAccessLayer
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
+                if (ds.Tables[0].Rows.Count == 0)
+                {
+                    throw new DataNotFoundException("Give valid Enrollment Id");
+                }
                 return ds;
 
             }
