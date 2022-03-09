@@ -18,12 +18,14 @@ namespace StudentManagementSystem
         {
             try
             {
-
+                Console.WriteLine("\t\t\t\t\tWelcome to Student Management System\n");
                 bool isEnd = false;
                 while (!isEnd)
                 {
-                    Console.WriteLine("Are You Faculty or Student");
+                    Console.WriteLine("Are You Faculty or Student?\n");
+                    
                     Console.WriteLine("1.Faculty 2.Student 3.Exit");
+                    Console.WriteLine("\n******************************************\n");
                     int n = Convert.ToInt32(Console.ReadLine());
                 
                     switch (n)
@@ -42,6 +44,7 @@ namespace StudentManagementSystem
                                         while (!isEnd2)
                                         {
                                             Console.WriteLine("1. Add New Student \n 2. Edit \n 3.View \n 4.Back");
+                                            Console.WriteLine("\n******************************************\n");
                                             int n2 = Convert.ToInt32(Console.ReadLine());
                                         
                                             switch (n2)
@@ -240,13 +243,19 @@ namespace StudentManagementSystem
                                                     EnrollmentsBO ebo = new EnrollmentsBO();
                                                     EnrollmentBL ebl = new EnrollmentBL();
                                                     DataSet ds1 = ebl.ViewEnrollment(ebo);
-                                                    Console.WriteLine("Course Enrollment Details of Studentd");
-                                                    Console.WriteLine("FirstName \t LastName \t CreatedDate \t\t CourseName \t Duration \t Description");
+                                                    Console.WriteLine("Course Enrollment Details of Student");
+                                                    Console.WriteLine("----------------------------------------------");
+                                                    Console.WriteLine("FirstName | LastName | CourseName | Duration | Description | CreatedDate");
                                                     foreach (DataRow dr in ds1.Tables[0].Rows)
                                                     {
-                                                        Console.WriteLine(dr[0] + "\t\t" + dr[1] + "\t\t" + dr[2] + "\t" + dr[3] + "\t\t" + dr[4] + "\t\t" + dr[5]);
+                                                       /* for (int i = 0; i <= 5; i++)
+                                                        {
+                                                            Console.Write(dr[i] + "   ");
+                                                        }*/
+                                                        
+                                                        Console.WriteLine(dr[0] + "\t" + dr[1] + "    " + dr[2] + "  " + dr[3] + "   " + dr[4] + "  " + dr[5]);
                                                     }
-                                                    Console.ReadKey();
+                                                    Console.WriteLine("\n******************************************\n");
                                                     break;
 
                                                 /*case 3:
@@ -443,6 +452,8 @@ namespace StudentManagementSystem
                                         CoursesBL cbl = new CoursesBL();
                                         DataSet ds1 = cbl.GetMyCoursesById(StudentId);
                                         Console.WriteLine("My Courses");
+                                        Console.WriteLine("-------------------");
+                                       Console.WriteLine("ID \t CourseName");
                                         foreach (DataRow dr in ds1.Tables[0].Rows)
                                         {
                                             Console.WriteLine(dr[0] + "\t" + dr[1]);
