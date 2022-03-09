@@ -27,7 +27,6 @@ namespace DataAccessLayer
                 cmd.Parameters.AddWithValue("@FirstName", ObjBO.FirstName);
                 cmd.Parameters.AddWithValue("@LastName", ObjBO.LastName);
                 cmd.Parameters.AddWithValue("@ContactNumber", ObjBO.ContactNumber);
-
                 cmd.Parameters.AddWithValue("@CollegeId", ObjBO.CollegeId);
                 cmd.Parameters.AddWithValue("@CreatedDate", ObjBO.CreatedDate);
 

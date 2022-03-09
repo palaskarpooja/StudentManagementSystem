@@ -174,10 +174,11 @@ namespace StudentManagementSystem
                                                         int CourseId = Convert.ToInt32(Console.ReadLine());
                                                         CoursesBL cbl1 = new CoursesBL();
                                                         DataSet ds3 = cbl1.GetCoursesById(CourseId);
-                                                        Console.WriteLine(" College Details");
+                                                        Console.WriteLine(" Course Details");
+                                                        Console.WriteLine("ID \t CourseName \t Duration \t Description");
                                                         foreach (DataRow dr in ds3.Tables[0].Rows)
                                                         {
-                                                            Console.WriteLine(dr[0] + "\t" + dr[1] + "\t" + dr[2] + "\t" + dr[3]);
+                                                            Console.WriteLine(dr[0] + "\t" + dr[1] + "\t\t" + dr[2] + "\t" + dr[3]);
                                                         }
                                                         CoursesBO bo4 = new CoursesBO();
                                                         Console.WriteLine("Enter the CourseId, CourseName, Duration and Description");
@@ -189,9 +190,9 @@ namespace StudentManagementSystem
                                                         CoursesBL blc2 = new BusinessLayer.CoursesBL();
                                                         int cd1 = blc2.UpdateCourseDataBL(bo4);
                                                         if (cd1 != 0)
-                                                            Console.WriteLine("Successfully added Course Details");
+                                                            Console.WriteLine("Successfully update Course Details");
                                                         else
-                                                            Console.WriteLine("Failed to add Course Details");
+                                                            Console.WriteLine("Failed to update Course Details");
                                                     }
                                                     Console.WriteLine("\n******************************************\n");
                                                     break;

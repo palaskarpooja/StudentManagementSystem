@@ -30,7 +30,7 @@ namespace BusinessLayer
             try
             {
                 CoursesDAL ObjCourse1 = new CoursesDAL();
-                return ObjCourse1.AddCourseDetails(ObjCourseBO1);
+                return ObjCourse1.UpdateCourseDetail(ObjCourseBO1);
             }
             catch
             {
