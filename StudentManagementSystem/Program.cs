@@ -19,25 +19,26 @@ namespace StudentManagementSystem
             try
             {
 
-
-                Console.WriteLine("Are You Faculty or Student");
-                Console.WriteLine("1.Faculty 2.Student 3.Exit");
-                int n = Convert.ToInt32(Console.ReadLine());
                 bool isEnd = false;
                 while (!isEnd)
                 {
+                    Console.WriteLine("Are You Faculty or Student");
+                    Console.WriteLine("1.Faculty 2.Student 3.Exit");
+                    int n = Convert.ToInt32(Console.ReadLine());
+                
                     switch (n)
                     {
                         case 1:
-
-                            Console.WriteLine("1. Manage Student Details \n 2. Manages Courses \n 3.Manage Enrollments \n 4.Manage College \n 5.Back");
-
-                            Console.WriteLine("\n******************************************\n");
-
-                            int n1 = Convert.ToInt32(Console.ReadLine());
                             bool isEnd1 = false;
                             while (!isEnd1)
                             {
+
+                                Console.WriteLine("1. Manage Student Details \n 2. Manages Courses \n 3.Manage Enrollments \n 4.Manage College \n 5.Back");
+
+                                Console.WriteLine("\n******************************************\n");
+
+                                int n1 = Convert.ToInt32(Console.ReadLine());
+                            
                                 switch (n1)
                                 {
                                     case 1:
@@ -241,9 +242,10 @@ namespace StudentManagementSystem
                                                     EnrollmentBL ebl = new EnrollmentBL();
                                                     DataSet ds1 = ebl.ViewEnrollment(ebo);
                                                     Console.WriteLine("Course Enrollment Details of Studentd");
+                                                    Console.WriteLine("FirstName \t LastName \t CreatedDate \t\t CourseName \t Duration \t Description");
                                                     foreach (DataRow dr in ds1.Tables[0].Rows)
                                                     {
-                                                        Console.WriteLine(dr[0] + "\t" + dr[1] + "\t" + dr[2] + "\t" + dr[3] + "\t" + dr[4] + "\t" + dr[5]);
+                                                        Console.WriteLine(dr[0] + "\t\t" + dr[1] + "\t\t" + dr[2] + "\t" + dr[3] + "\t\t" + dr[4] + "\t\t" + dr[5]);
                                                     }
                                                     Console.ReadKey();
                                                     break;
@@ -290,9 +292,9 @@ namespace StudentManagementSystem
                                                     CollegesBL blcl1 = new BusinessLayer.CollegesBL();
                                                     int cl = blcl1.CollegeDataBL(bo5);
                                                     if (cl != 0)
-                                                        Console.WriteLine("Successfully add College");
+                                                        Console.WriteLine("Successfully add College Details");
                                                     else
-                                                        Console.WriteLine("Failed to add College ");
+                                                        Console.WriteLine("Failed to add College Deatils ");
                                                     break;
 
                                                 case 2:
@@ -331,25 +333,27 @@ namespace StudentManagementSystem
                             //---------------------Student----------------------------
 
                         case 2:
-                            Console.WriteLine("1. Manage Student Details \n 2. My Courses \n 3.List Of Courses \n 4.Back");
-
-                            Console.WriteLine("\n******************************************\n");
-
-                            int s1 = Convert.ToInt32(Console.ReadLine());
                             bool isEnd5 = false;
                             while (!isEnd5)
                             {
+                                Console.WriteLine("1. Manage Student Details \n 2. My Courses \n 3.List Of Courses \n 4.Back");
+
+                                Console.WriteLine("\n******************************************\n");
+
+                                int s1 = Convert.ToInt32(Console.ReadLine());
+                            
                                 switch (s1)
                                 {
                                     case 1:
-                                        Console.WriteLine("1. Register \n 2. View \n 3.Edit \n 4.Back");
+                                        bool isEnd6 = false;
+                                        while (!isEnd6)
+                                        {
+                                            Console.WriteLine("1. Register \n 2. View \n 3.Edit \n 4.Back");
 
                                         Console.WriteLine("\n******************************************\n");
 
                                         int s2 = Convert.ToInt32(Console.ReadLine());
-                                        bool isEnd6 = false;
-                                        while (!isEnd6)
-                                        {
+                                        
                                             switch (s2)
                                             {
                                                 case 1:

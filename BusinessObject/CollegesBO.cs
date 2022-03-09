@@ -16,7 +16,7 @@ namespace BusinessObject
             {
 
             }
-            public CollegesBO(string name, int id)
+            public CollegesBO(string name, int id) 
             {
                 this.name = name;
                 this.id = id;
