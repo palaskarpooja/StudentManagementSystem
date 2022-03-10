@@ -79,19 +79,7 @@ namespace DataAccessLayer
             }
         }
 
-        public int DeleteStudentByID(int Id)
-        {
-            SqlCommand cmd = new SqlCommand("sp_DeleteStudentByID", con);
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Id", Id);
-            int Result = cmd.ExecuteNonQuery();
-            cmd.Dispose();
-            con.Close();
-            return Result;
-        }
-
-
-
+      
 
         public DataSet GetStudentById(int Id)
         {

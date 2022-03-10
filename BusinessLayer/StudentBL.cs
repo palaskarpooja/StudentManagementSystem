@@ -39,18 +39,7 @@ namespace BusinessLayer
             }
         }
 
-        public int DeleteStudentById(int Id)
-        {
-            try
-            {
-                StudentDAL ObjStud2 = new StudentDAL();
-                return ObjStud2.DeleteStudentByID(Id);
-            }
-            catch
-            {
-                throw;
-            }
-        }
+        
         public DataSet GetStudentById(int Id)
         {
             try
